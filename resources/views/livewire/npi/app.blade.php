@@ -6,7 +6,7 @@ use Livewire\Attributes\Rule;
 
 new class extends Component {
     public string $query = '';
-    public array $results = [];
+    public ?array $results = null;
     public int $page = 1;
     public array $activeRecord;
 
@@ -119,7 +119,7 @@ new class extends Component {
     <div>
         <livewire:npi.search />
 
-        @if (count($results) > 0)
+        @if (is_array($results))
             <livewire:npi.list :results="$results" />
 
             <div class="row mt-2">

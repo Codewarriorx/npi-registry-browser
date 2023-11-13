@@ -70,9 +70,8 @@ new class extends Component {
             </tr>
         </thead>
         <tbody class="table-group-divider">
-            @foreach ($results as $result)
-            <tr class="cursor-pointer"
-                x-bind:class="{ 'placeholder-glow': isLoading }"
+            @forelse ($results as $result)
+            <tr class="cursor-pointer placeholder-glow"
                 wire:click="viewRecord({{ $loop->index }})">
                 <td class="text-center">
                     <span x-bind:class="{ 'placeholder': isLoading }">
@@ -122,7 +121,17 @@ new class extends Component {
                     </span>
                 </td>
             </tr>
-            @endforeach
+
+            @empty
+
+            <tr class="placeholder-glow">
+                <td class="text-center" colspan="6">
+                    <span x-bind:class="{ 'placeholder': isLoading }">
+                        No Results Found
+                    </span>
+                </td>
+            </tr>
+            @endforelse
         </tbody>
     </table>
 

@@ -2,7 +2,7 @@
 This is a simple web application that allows users to search the NPI registry and filter results.
 
 ## Installed With
-curl -s "https://laravel.build/npi-registry-browse?with=none | bash
+curl -s https://laravel.build/npi-registry-browse?with=none | bash
 
 ## Run Locally
 
@@ -10,6 +10,6 @@ curl -s "https://laravel.build/npi-registry-browse?with=none | bash
 
 ## What is used
 - Laravel
-- Livewire
+- Livewire/Volt
 - Alpine
 - Bootstrap

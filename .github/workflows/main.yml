@@ -22,6 +22,14 @@ jobs:
       - name: Install Serverless Framework
         run: npm install -g serverless
 
+      # This step installs the Serverless CloudFront lift plugin.
+      - name: Install Serverless Lift
+        run: serverless plugin install -n serverless-lift
+
+      # This step compiles assets.
+      - name: Compile front-end assets
+        run: npm run prod
+
       # This step sets up PHP environment with the specified version.
       - name: Setup PHP
         uses: shivammathur/setup-php@v2

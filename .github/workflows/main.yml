@@ -28,7 +28,7 @@ jobs:
 
       # This step compiles assets.
       - name: Compile front-end assets
-        run: npm run prod
+        run: npm run build
 
       # This step sets up PHP environment with the specified version.
       - name: Setup PHP

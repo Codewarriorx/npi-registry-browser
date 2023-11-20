@@ -9,25 +9,25 @@ use Illuminate\Validation\Rule as RuleValidator;
 new class extends Component
 {
     #[Rule('nullable|numeric|digits_between:2,10')]
-    public $number;
+    public int $number;
 
     #[Rule('nullable|string|min:2')]
-    public $firstName;
+    public string $firstName;
 
     #[Rule('nullable|string|min:2')]
-    public $lastName;
+    public string $lastName;
 
     #[Rule('nullable|string|min:2')]
-    public $taxonomyDescription;
+    public string $taxonomyDescription;
 
     #[Rule('nullable|string|min:2')]
-    public $city;
+    public string $city;
 
     #[Rule('nullable|string|size:2')]
-    public $state;
+    public string $state;
 
     #[Rule('nullable|numeric|digits_between:2,5')]
-    public $postalCode;
+    public int $postalCode;
 
     public function search()
     {

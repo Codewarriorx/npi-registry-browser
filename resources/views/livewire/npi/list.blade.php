@@ -6,9 +6,9 @@ use Livewire\Attributes\On;
 
 new class extends Component {
     #[Reactive]
-    public Array $results;
-    public Int $paging = 50;
-    public $activeRecord;
+    public array $results;
+    public int $paging = 50;
+    public array $activeRecord;
 
     public function changePaging()
     {

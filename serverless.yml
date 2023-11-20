@@ -8,6 +8,7 @@ provider:
     environment:
         APP_ENV: production # Or use ${sls:stage} if you want the environment to match the stage
         APP_URL: https://npi.michaellauridsen.dev
+        APP_DEBUG: false
 
 package:
     # Files and directories to exclude from deployment

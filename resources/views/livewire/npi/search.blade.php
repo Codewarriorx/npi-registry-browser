@@ -85,7 +85,7 @@ new class extends Component
                         class="form-control @error ('number') is-invalid @enderror"
                         id="number"
                         maxlength="10"
-                        wire:model.live="number">
+                        wire:model.blur="number">
                     @error ('number')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -98,7 +98,7 @@ new class extends Component
                         name="taxonomy_description"
                         class="form-control @error ('taxonomyDescription') is-invalid @enderror"
                         id="taxonomy_description"
-                        wire:model.live="taxonomyDescription">
+                        wire:model.blur="taxonomyDescription">
                     @error ('taxonomyDescription')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -114,7 +114,7 @@ new class extends Component
                         name="first_name"
                         class="form-control @error ('firstName') is-invalid @enderror"
                         id="first_name"
-                        wire:model.live="firstName">
+                        wire:model.blur="firstName">
                     @error ('firstName')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -127,7 +127,7 @@ new class extends Component
                         name="last_name"
                         class="form-control @error ('lastName') is-invalid @enderror"
                         id="last_name"
-                        wire:model.live="lastName">
+                        wire:model.blur="lastName">
                     @error ('lastName')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -143,7 +143,7 @@ new class extends Component
                         name="city"
                         class="form-control @error ('city') is-invalid @enderror"
                         id="city"
-                        wire:model.live="city">
+                        wire:model.blur="city">
                     @error ('city')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -231,7 +231,7 @@ new class extends Component
                         class="form-control @error ('postalCode') is-invalid @enderror"
                         id="postal_code"
                         maxlength="5"
-                        wire:model.live="postalCode">
+                        wire:model.blur="postalCode">
                     @error ('postalCode')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

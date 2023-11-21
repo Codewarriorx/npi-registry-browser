@@ -77,7 +77,7 @@ new class extends Component
     </h2>
     <form class="mb-4" wire:submit="search">
         <div class="row">
-            <div class="col-3">
+            <div class="col-sm-12 col-md-3">
                 <div class="mb-2">
                     <label for="number" class="form-label">NPI Number</label>
                     <input type="number"
@@ -149,7 +149,7 @@ new class extends Component
                     @enderror
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-md-4">
                 <div class="mb-2">
                     <label for="state" class="form-label">State</label>
                     <select name="state"
@@ -223,7 +223,7 @@ new class extends Component
                     @enderror
                 </div>
             </div>
-            <div class="col-2">
+            <div class="col-md-2">
                 <div class="mb-2">
                     <label for="postal_code" class="form-label">Postal Code</label>
                     <input type="number"

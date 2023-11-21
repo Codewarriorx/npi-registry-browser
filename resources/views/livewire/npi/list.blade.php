@@ -54,26 +54,26 @@ new class extends Component {
             </select>
         </div>
     </h2>
-    <table class="table table-striped table-hover caption-top align-middle">
+    <table class="table table-striped table-hover caption-top align-middle table-responsive">
         <caption>
             List of NPI(s) that match your search. View more information by selecting a row.
         </caption>
 
         <thead>
             <tr>
-                <td class="text-center">NPI</td>
+                <td class="text-center d-none d-md-table-cell">NPI</td>
                 <td>Name</td>
                 <td class="text-center">Type</td>
                 <td title="Primary Practice Address">Address</td>
-                <td class="text-center">Phone</td>
-                <td class="text-center" title="Primary Taxonomy">Taxonomy</td>
+                <td class="text-center d-none d-md-table-cell">Phone</td>
+                <td class="text-center d-none d-md-table-cell" title="Primary Taxonomy">Taxonomy</td>
             </tr>
         </thead>
         <tbody class="table-group-divider">
             @forelse ($results as $result)
             <tr class="cursor-pointer placeholder-glow"
                 wire:click="viewRecord({{ $loop->index }})">
-                <td class="text-center">
+                <td class="text-center d-none d-md-table-cell">
                     <span x-bind:class="{ 'placeholder': isLoading }">
                         {{ $result['number'] }}
                     </span>
@@ -110,12 +110,12 @@ new class extends Component {
                         {{ substr($result['addresses']['location']['postal_code'], 0, 5) . '-' . substr($result['addresses']['location']['postal_code'], 5) }}
                     </span>
                 </td>
-                <td class="text-center text-nowrap">
+                <td class="text-center text-nowrap d-none d-md-table-cell">
                     <span x-bind:class="{ 'placeholder': isLoading }">
                         {{ $result['addresses']['location']['telephone_number'] }}
                     </span>
                 </td>
-                <td class="text-center">
+                <td class="text-center d-none d-md-table-cell">
                     <span x-bind:class="{ 'placeholder': isLoading }">
                         {{ $result['taxonomies'][0]['desc'] }}
                     </span>
@@ -172,21 +172,21 @@ new class extends Component {
             </h4>
 
             <dl class="row">
-                <dt class="col-sm-4 text-end">NPI</dt>
+                <dt class="col-sm-4 text-end text-start-sm">NPI</dt>
                 <dd class="col-sm-8">{{ $activeRecord['number'] }}</dd>
 
-                <dt class="col-sm-4 text-end">Enumeration Date</dt>
+                <dt class="col-sm-4 text-end text-start-sm">Enumeration Date</dt>
                 <dd class="col-sm-8">{{ $activeRecord['basic']['enumeration_date'] }}</dd>
 
-                <dt class="col-sm-4 text-end">NPI Type</dt>
+                <dt class="col-sm-4 text-end text-start-sm">NPI Type</dt>
                 <dd class="col-sm-8">{{ $activeRecord['enumeration_type'] }}</dd>
 
                 @if (isset($activeRecord['basic']['sole_proprietor']))
-                <dt class="col-sm-4 text-end">Sole Proprietor</dt>
+                <dt class="col-sm-4 text-end text-start-sm">Sole Proprietor</dt>
                 <dd class="col-sm-8">{{ $activeRecord['basic']['sole_proprietor'] }}</dd>
                 @endif
 
-                <dt class="col-sm-4 text-end">Status</dt>
+                <dt class="col-sm-4 text-end text-start-sm">Status</dt>
                 <dd class="col-sm-8">
                     @if ($activeRecord['basic']['status'] == 'A')
                     Active
@@ -196,7 +196,7 @@ new class extends Component {
                 </dd>
 
                 @if ($activeRecord['enumeration_type'] == 'NPI-2')
-                <dt class="col-sm-4 text-end">Authorized Official Information</dt>
+                <dt class="col-sm-4 text-end text-start-sm">Authorized Official Information</dt>
                 <dd class="col-sm-8">
                     <span class="d-block">
                         <strong>Name: </strong>
@@ -216,18 +216,18 @@ new class extends Component {
                 </dd>
                 @endif
 
-                <dt class="col-sm-4 text-end">Mailing Address</dt>
+                <dt class="col-sm-4 text-end text-start-sm">Mailing Address</dt>
                 <dd class="col-sm-8">
                     <x-address :address="$activeRecord['addresses']['mailing']" />
                 </dd>
 
-                <dt class="col-sm-4 text-end">Primary Practice Address</dt>
+                <dt class="col-sm-4 text-end text-start-sm">Primary Practice Address</dt>
                 <dd class="col-sm-8">
                     <x-address :address="$activeRecord['addresses']['location']" />
                 </dd>
 
                 @if ($activeRecord['practiceLocations'])
-                <dt class="col-sm-4 text-end">Secondary Practice Addresses</dt>
+                <dt class="col-sm-4 text-end text-start-sm">Secondary Practice Addresses</dt>
                 <dd class="col-sm-8">
                     @foreach ($activeRecord['practiceLocations'] as $practiceLocation)
                     <x-address :address="$practiceLocation" />
@@ -240,7 +240,7 @@ new class extends Component {
                 @endif
 
                 @if ($activeRecord['identifiers'])
-                <dt class="col-sm-4 text-end">Other Identifiers</dt>
+                <dt class="col-sm-4 text-end text-start-sm">Other Identifiers</dt>
                 <dd class="col-sm-8">
                     <table class="table table-striped table-hover align-middle">
                         <thead>
@@ -269,7 +269,7 @@ new class extends Component {
                 </dd>
                 @endif
 
-                <dt class="col-sm-4 text-end">Taxonomy</dt>
+                <dt class="col-sm-4 text-end text-start-sm">Taxonomy</dt>
                 <dd class="col-sm-8">
                     <table class="table table-striped table-hover align-middle">
                         <thead>
@@ -308,7 +308,7 @@ new class extends Component {
                 @if ($activeRecord['endpoints'])
                 <dt class="col-sm-12">Health Information Exchange</dt>
                 <dd class="col-sm-12">
-                    <table class="table table-striped table-hover align-middle">
+                    <table class="table table-striped table-hover align-middle table-responsive">
                         <thead>
                             <tr>
                                 <th>Type</th>

@@ -41,10 +41,17 @@ jobs:
         uses: "ramsey/composer-install@v2"
         with:
           composer-options: "--prefer-dist --optimize-autoloader --no-dev"
+          ignore-cache: true
+
+      # This step generates an app key.
+      - name: Generate app key
+        run: php artisan key:generate
 
       # This step deploys your application to AWS Lambda using the Serverless Framework.
       - name: Deploy to AWS Lambda
-        run: serverless deploy --stage=prod
+        uses: serverless/github-action@v3.2
+        with:
+          args: deploy --stage=prod
         env:
           APP_ENV: ${{ vars.APP_ENV }}
           APP_DEBUG: ${{ vars.APP_DEBUG }}

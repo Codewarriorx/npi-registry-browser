@@ -48,6 +48,8 @@ jobs:
         with:
           args: deploy --stage=prod
         env:
+          APP_ENV: ${{ vars.APP_ENV }}
+          APP_DEBUG: ${{ vars.APP_DEBUG }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           SENTRY_LARAVEL_DSN: ${{ secrets.SENTRY_LARAVEL_DSN }}

@@ -6,6 +6,7 @@
         "build": "vite build"
     },
     "dependencies": {
+        "@sentry/browser": "^7.40.0",
         "bootstrap": "^5.3.2",
         "iconify-icon": "^1.0.8"
     },

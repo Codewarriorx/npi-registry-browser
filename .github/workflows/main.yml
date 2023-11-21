@@ -45,7 +45,7 @@ jobs:
 
       # This step generates an app key.
       - name: Generate app key
-        run: php artisan key:generate
+        run: export APP_KEY=$(php artisan key:generate --show --no-interaction)
 
       # This step deploys your application to AWS Lambda using the Serverless Framework.
       - name: Deploy to AWS Lambda

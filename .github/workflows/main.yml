@@ -43,9 +43,13 @@ jobs:
           composer-options: "--prefer-dist --optimize-autoloader --no-dev"
           ignore-cache: true
 
+      # This step created empty env file.
+      - name: Create env file
+        run: touch .env
+
       # This step generates an app key.
       - name: Generate app key
-        run: export APP_KEY=$(php artisan key:generate --show --no-interaction)
+        run: php artisan key:generate
 
       # This step deploys your application to AWS Lambda using the Serverless Framework.
       - name: Deploy to AWS Lambda

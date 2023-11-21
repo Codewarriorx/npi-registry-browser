@@ -43,15 +43,20 @@ jobs:
           composer-options: "--prefer-dist --optimize-autoloader --no-dev"
           ignore-cache: true
 
+      # Create env file with github actions vars and secrets
+      - name: Make envfile
+        uses: SpicyPizza/create-envfile@v2.0
+        with:
+          envkey_APP_ENV: ${{ vars.APP_ENV }}
+          envkey_APP_DEBUG: ${{ vars.APP_DEBUG }}
+          envkey_SENTRY_LARAVEL_DSN: ${{ secrets.SENTRY_LARAVEL_DSN }}
+          envkey_APP_KEY: ${{ secrets.APP_KEY }}
+
       # This step deploys your application to AWS Lambda using the Serverless Framework.
       - name: Deploy to AWS Lambda
         uses: serverless/github-action@v3.2
         with:
           args: deploy --stage=prod
         env:
-          APP_ENV: ${{ vars.APP_ENV }}
-          APP_DEBUG: ${{ vars.APP_DEBUG }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          SENTRY_LARAVEL_DSN: ${{ secrets.SENTRY_LARAVEL_DSN }}
-          APP_KEY: ${{ secrets.APP_KEY }}

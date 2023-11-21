@@ -332,7 +332,7 @@ new class extends Component {
                                     </a>
                                 </td>
                                 <td>
-                                    {{ $endpoint['endpointDescription'] }}
+                                    {{ $endpoint['endpointDescription'] ?? '' }}
                                 </td>
                                 <td>
                                     {{ $endpoint['useOtherDescription'] }}

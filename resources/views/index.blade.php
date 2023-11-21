@@ -16,16 +16,25 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary"
+    x-data="{ isNavOpen: false }"
+    x-on:click.outside="isNavOpen = false">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         NPI Registry Browser
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler"
+        x-bind:class="{ 'collapsed': !isNavOpen }"
+        x-on:click="isNavOpen = !isNavOpen"
+        type="button"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse"
+        id="navbarSupportedContent"
+        x-bind:class="{ 'show': isNavOpen }">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
